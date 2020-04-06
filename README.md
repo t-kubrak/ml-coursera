@@ -1,2 +1,2 @@
 # ml-coursera
-Machine learing course from Coursera by Stanford
+Machine learning course from Coursera by Stanford
