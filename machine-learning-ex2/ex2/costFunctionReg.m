@@ -16,12 +16,14 @@ grad = zeros(size(theta));
 %               You should set J to the cost.
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
+hypothesis = sigmoid(X*theta);
+thetasWithoutFirst = [0;theta(2:end)];
 
+costFunction = 1/m * sum(-y.*log(hypothesis)-(1-y).*log(1-hypothesis));
+regularization = (lambda/(2*m))*sum(thetasWithoutFirst.^2);
 
-
-
-
-
+J = costFunction + regularization;
+grad = 1/m * X'*(hypothesis-y) + lambda/m * thetasWithoutFirst;
 % =============================================================
 
 end
